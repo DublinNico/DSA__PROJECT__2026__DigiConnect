@@ -8,6 +8,31 @@ package digiconnect.model;
  *
  * @author tonyn
  */
-public class Developing {
+public class Developing extends Resident {
     
+    private String targetSkill;
+    // skill the resident is working with
+
+    public Developing(int id, String name, String address, int age, int phone, String digitalBarrier, String status) {
+        super(id, name, address, age, phone, digitalBarrier, status);
+        this.targetSkill = targetSkill;
+    }
+    
+    @Override
+    public String getSkillTier(){
+        return "Developing";
+    }
+
+    public String getTargetSkill() {
+        return targetSkill;
+    }
+
+    public void setTargetSkill(String targetSkill) {
+        this.targetSkill = targetSkill;
+    }
+    
+    @Override
+    public String toString() {
+      return super.toString() + " | Targget Skill: " + targetSkill;
+    }  
 }
