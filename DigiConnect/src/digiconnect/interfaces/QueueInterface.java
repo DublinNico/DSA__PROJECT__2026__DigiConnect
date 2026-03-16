@@ -18,11 +18,14 @@ public interface QueueInterface {
     public int size();
     
     // Returns the element at the front without removing it
-    public Object frontElement();
+    public Object frontOfQueue();
     
      // Adds an element to the rear of the queue
     public void enqueue(Object element);
     
     // Removes and returns the element from the front of the queue
-    public Object dequeue();   
+    public Object dequeue(); 
+    
+    // Prints all elements in the queue
+    public void printQueue();
 }
