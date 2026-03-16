@@ -33,6 +33,6 @@ public class Developing extends Resident {
     
     @Override
     public String toString() {
-      return super.toString() + " | Targget Skill: " + targetSkill;
+      return super.toString() + " | Target Skill: " + targetSkill;
     }  
 }
