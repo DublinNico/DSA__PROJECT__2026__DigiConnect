@@ -15,7 +15,7 @@ public interface StackInterface {
     public boolean isEmpty();
     
     // Returns true if the stack if fll, otherwise false
-    public boolean ifFull();
+    public boolean isFull();
     
     // Add an element to the top of the stack
     public void push(Object newItem);
