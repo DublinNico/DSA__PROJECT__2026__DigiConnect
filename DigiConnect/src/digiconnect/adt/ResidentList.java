@@ -17,6 +17,7 @@ import java.util.ArrayList;
  */
 public class ResidentList implements ListInterface {
     
+    
     // ArrayList to store all registered residents
     private ArrayList<Resident> residents;
     
@@ -106,5 +107,14 @@ public class ResidentList implements ListInterface {
         // Print final string to console
         System.out.println(str);
     }
+    
+    public String getListAsString() {
+    String str = "";
+    for (int i = 0; i < residents.size(); i++) {
+        str = str + residents.get(i).toString() + "\n";
+    }
+    return str;
+}
+    
     
 }

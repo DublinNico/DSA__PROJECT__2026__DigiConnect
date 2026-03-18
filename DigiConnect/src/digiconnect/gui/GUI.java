@@ -4,17 +4,44 @@
  */
 package digiconnect.gui;
 
+
+
 /**
- *
+ * 
  * @author tonyn
  */
 public class GUI extends javax.swing.JFrame {
+
+    public static digiconnect.adt.ResidentList residentList = new digiconnect.adt.ResidentList();
+    public static digiconnect.adt.AssessmentQueue assessmentQueue = new digiconnect.adt.AssessmentQueue();
+    public static digiconnect.adt.CompletedSessionStack completedStack = new digiconnect.adt.CompletedSessionStack();
+    
+
 
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        updateCounts();
+    }
+    
+    private void updateCounts() {
+        lblTotal.setText("Total Residents: " + GUI.residentList.size());
+        lblWaiting.setText("Waiting: " + countByStatus("Waiting"));
+        lblActive.setText("Active: " + countByStatus("Active"));
+        lblCompleted.setText("Completed: " + countByStatus("Completed"));
+    }
+
+    private int countByStatus(String status) {
+        int count = 0;
+        for (int i = 1; i <= GUI.residentList.size(); i++) {
+            digiconnect.model.Resident resident = (digiconnect.model.Resident) GUI.residentList.get(i);
+            if (resident.getStatus().equals(status)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -26,21 +53,151 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        lblSubtitle = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        lblWaiting = new javax.swing.JLabel();
+        lblActive = new javax.swing.JLabel();
+        lblCompleted = new javax.swing.JLabel();
+        btnRegister = new javax.swing.JButton();
+        btnQueue = new javax.swing.JButton();
+        btnSessions = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DigiConnect");
+        setBackground(new java.awt.Color(204, 204, 204));
+        setPreferredSize(new java.awt.Dimension(650, 450));
+
+        lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitle.setText("DigiConnect");
+
+        lblSubtitle.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblSubtitle.setForeground(new java.awt.Color(102, 102, 102));
+        lblSubtitle.setText("Community Digital Skills Tracker");
+
+        lblTotal.setText("Total Residents:");
+
+        lblWaiting.setText("Waiting:");
+
+        lblActive.setText("Active:");
+
+        lblCompleted.setText("Completed: ");
+
+        btnRegister.setText("Register Resident");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+
+        btnQueue.setText("Assesment Queue");
+        btnQueue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQueueActionPerformed(evt);
+            }
+        });
+
+        btnSessions.setText("Session Tracker");
+        btnSessions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSessionsActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Progress Dashboard");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(lblTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblWaiting)
+                            .addComponent(lblTotal)
+                            .addComponent(lblActive)
+                            .addComponent(lblCompleted))
+                        .addGap(65, 65, 65)
+                        .addComponent(lblSubtitle)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 191, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegister)
+                    .addComponent(btnSessions))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnQueue)
+                    .addComponent(jButton4))
+                .addGap(173, 173, 173))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblTitle)
+                .addGap(2, 2, 2)
+                .addComponent(lblSubtitle)
+                .addGap(43, 43, 43)
+                .addComponent(lblTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblWaiting)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblActive)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCompleted)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegister)
+                    .addComponent(btnQueue))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSessions)
+                    .addComponent(jButton4))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQueueActionPerformed
+        // TODO add your handling code here:
+        AssessmentQueuePanel assessmentQueueForm = new AssessmentQueuePanel();
+        assessmentQueueForm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnQueueActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        RegisteredResidentsForm registerForm = new RegisteredResidentsForm();
+        registerForm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSessionsActionPerformed
+        // TODO add your handling code here:
+        SessionTrackerPanel sessionsPanel = new SessionTrackerPanel();
+        sessionsPanel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSessionsActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        ProgressPanel progressPanel = new ProgressPanel();
+        progressPanel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +235,15 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnQueue;
+    private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnSessions;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel lblActive;
+    private javax.swing.JLabel lblCompleted;
+    private javax.swing.JLabel lblSubtitle;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblWaiting;
     // End of variables declaration//GEN-END:variables
 }

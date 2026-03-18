@@ -108,4 +108,14 @@ public class CompletedSessionStack implements StackInterface {
         }
     }
     
+    public String getStackAsString() {
+    String str = "";
+    Node tempNode = head;
+    while (tempNode != null) {
+        str = str + tempNode.getElement().toString() + "\n";
+        tempNode = tempNode.getNext();
+    }
+    return str;
+}
+    
 }

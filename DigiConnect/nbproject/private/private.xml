@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tonyn/Documents/NetBeansProjects/DSA__PROJECT__2026__DigiConnect/DigiConnect/src/digiconnect/adt/SinglyLinkedList.java</file>
+            <file>file:/C:/Users/tonyn/Documents/NetBeansProjects/DSA__PROJECT__2026__DigiConnect/DigiConnect/src/digiconnect/gui/SessionTrackerPanel.java</file>
+            <file>file:/C:/Users/tonyn/Documents/NetBeansProjects/DSA__PROJECT__2026__DigiConnect/DigiConnect/src/digiconnect/gui/RegisteredResidentsForm.java</file>
+            <file>file:/C:/Users/tonyn/Documents/NetBeansProjects/DSA__PROJECT__2026__DigiConnect/DigiConnect/src/digiconnect/gui/GUI.java</file>
+            <file>file:/C:/Users/tonyn/Documents/NetBeansProjects/DSA__PROJECT__2026__DigiConnect/DigiConnect/src/digiconnect/adt/ResidentList.java</file>
+            <file>file:/C:/Users/tonyn/Documents/NetBeansProjects/DSA__PROJECT__2026__DigiConnect/DigiConnect/src/digiconnect/adt/AssessmentQueue.java</file>
         </group>
     </open-files>
 </project-private>

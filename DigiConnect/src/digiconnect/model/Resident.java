@@ -89,7 +89,8 @@ public abstract class Resident {
     // toString
     @Override
     public String toString() {
-        return "[" + id + "[" + name + " | " + getSkillTier() + " | " + status;
+       return "[" + id + "] " + name + " | Age: " + age + " | Address: " + address + " | Phone: " + phone + " | Barrier: " + digitalBarrier + " | " + getSkillTier() + " | " + status;
+
     }
     
 }

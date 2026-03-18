@@ -12,14 +12,14 @@ import digiconnect.interfaces.QueueInterface;
  * Backed by SLL - Follows FIFO principle
  * @author tonyn
  */
-public class AssesmentQueue implements QueueInterface {
+public class AssessmentQueue implements QueueInterface {
     
     private Node head;
     private Node curr;
     private int size;
     
     // Constructor for setting up an empty queue
-    public AssesmentQueue() {
+    public AssessmentQueue() {
         head = null;
         curr = null;
         size = 0;
@@ -48,10 +48,11 @@ public class AssesmentQueue implements QueueInterface {
         if (head == null) {
             return null;
         }else {
-            Node temp = head;
+            Object element = head.getElement();
+//            Node temp = head;
             head = head.getNext();
             size--;
-            return temp;
+            return element;
         }
     }
     // Returns the element to the front of the queue without removing it
@@ -72,7 +73,9 @@ public class AssesmentQueue implements QueueInterface {
         // Set up new node using the object passed in
         Node newNode = new Node(element, null);
        if (head == null) { 
+           head = newNode;
        } else {
+          
            // Move to the end of the queue
            setCurrent(size);
            curr.setNext(newNode);
@@ -97,6 +100,17 @@ public class AssesmentQueue implements QueueInterface {
             System.out.println(tempNode.toString());
             tempNode = tempNode.getNext();
         }
+    }
+    
+    // Returns all elements in the queue as a string
+    public String getQueueAsString() {
+        String str = "";
+        Node tempNode = head;
+        while (tempNode != null) {
+            str = str + tempNode.getElement().toString() + "\n";
+            tempNode = tempNode.getNext();
+        }
+        return str;
     }
     
 }
